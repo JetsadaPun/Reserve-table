@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 
-public class Form1 extends JFrame {
+public class Form1 extends JFrame implements ActionListener {
     Container cp, cp2;
     JLabel Name, Password;
     JPasswordField t2;
@@ -42,6 +42,7 @@ public class Form1 extends JFrame {
         cp.add(b1);
 
         b1.setActionCommand("b1");
+        b1.addActionListener(this);
     }
 
     public void Initial() {
@@ -55,5 +56,12 @@ public class Form1 extends JFrame {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        Form2 Form2 = new Form2();
+        Form2.setVisible(true);
+        dispose();
     }
 }

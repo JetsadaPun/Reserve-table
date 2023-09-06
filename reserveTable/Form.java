@@ -104,6 +104,9 @@ public class Form extends JFrame implements KeyListener, MouseListener, ActionLi
             Check(test);
 
         }
+        Form1 Form1 = new Form1();
+        Form1.setVisible(true);
+        dispose();
     }
 
     @Override
@@ -156,4 +159,5 @@ public class Form extends JFrame implements KeyListener, MouseListener, ActionLi
             b1.setBackground(backup);
         }
     }
+
 }

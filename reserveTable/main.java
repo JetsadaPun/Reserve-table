@@ -2,6 +2,6 @@ package reserveTable;
 
 public class main {
     public static void main(String[] args) {
-        new table();
+        new Form1();
     }
 }
