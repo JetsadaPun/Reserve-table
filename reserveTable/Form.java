@@ -104,7 +104,7 @@ public class Form extends JFrame implements KeyListener, MouseListener, ActionLi
             Check(test);
 
         }
-        Form1 Form1 = new Form1();
+        Login Form1 = new Login();
         Form1.setVisible(true);
         dispose();
     }

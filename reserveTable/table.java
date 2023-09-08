@@ -1,22 +1,25 @@
 package reserveTable;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.event.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.awt.*;
 
 public class table extends JFrame implements ActionListener, MouseListener {
     Container cp;
     JLabel Date;
     JPanel buttonPanel;
-    JButton confirmButton;
     JButton confirm;
     JButton check;
 
-    private String name;
-    private String phone;
-    private String amount;
-    private String date;
-    private String time;
+    // private String name;
+    // private String phone;
+    // private String amount;
+    // private String date;
+    // private String time;
 
     public table() { // String Name, String Phone, String Quantity, String Date, String Time
         super("Table");
@@ -39,6 +42,14 @@ public class table extends JFrame implements ActionListener, MouseListener {
         // detail();
         table();
         Button();
+
+        BufferedImage pic;
+            try{
+                pic = ImageIO.read(new File("img/newreserve.jpg"));
+                JLabel Ipic = new JLabel(new ImageIcon(pic));
+                Ipic.setBounds(0, 0, 1000, 600);
+                cp.add(Ipic);
+            } catch(IOException e) {}
     }
 
     // public void detail() {
@@ -60,78 +71,68 @@ public class table extends JFrame implements ActionListener, MouseListener {
 
     public void table() {
         JPanel p = new JPanel();
+        p.setBackground(new Color(0, 0, 0, 0));
         p.setLayout(new GridLayout(5, 4, 15, 15));
         for (int i = 1; i <= 20; i++) {
             JButton b = new JButton("Table no. " + (i));
-            b.setFont(new Font("Times New Roman", Font.PLAIN, 10));
+            b.setFont(new Font("Sitka Text", Font.PLAIN, 9));
+            b.setBackground(Color.WHITE);
             p.add(b);
         }
-        p.setBounds(43, 15, 400, 400);
+        p.setBounds(510, 60, 400, 400);
         cp.add(p);
     }
 
     public void Button() {
         confirm = new JButton("Confirm");
-        confirm.setBounds(185, 425, 120, 40);
+        confirm.setFont(new Font("Sitka Text", Font.PLAIN , 13));
+        confirm.setBackground(Color.WHITE);
+        confirm.setBounds(810, 480, 100, 40);
         confirm.addActionListener(this);
         confirm.setActionCommand("click_confirm");
-        check = new JButton("check>>");
-        check.setBounds(350, 425, 100, 40);
-        check.addActionListener(this);
-        check.setActionCommand("click_check");
-        cp.add(check);
         cp.add(confirm);
     }
 
     public void Finally() {
-        this.setSize(500, 510);
+        this.setSize(1000, 600);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand() == "click_confirm") {
+            Book Book = new Book();
+            Book.setVisible(true);
             if (check.getBackground() == Color.RED)
                 confirm.setBackground(Color.white);
             else
                 confirm.setBackground(Color.RED);
-        }
-        if (e.getActionCommand() == "click_check") {
-            if (check.getBackground() == Color.RED)
-                check.setBackground(Color.white);
-            else
-                check.setBackground(Color.RED);
+            
         }
     }
 
-    @Override
     public void mouseClicked(MouseEvent e) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'mouseClicked'");
     }
 
-    @Override
     public void mousePressed(MouseEvent e) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'mousePressed'");
     }
 
-    @Override
     public void mouseReleased(MouseEvent e) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'mouseReleased'");
     }
 
-    @Override
     public void mouseEntered(MouseEvent e) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'mouseEntered'");
     }
 
-    @Override
     public void mouseExited(MouseEvent e) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'mouseExited'");
