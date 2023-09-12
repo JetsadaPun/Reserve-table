@@ -1,0 +1,5 @@
+Username :Peter,Email :taker,Password :Punpun190,
+Username :pond,Email :punpun@mail.com,Password :pun,
+Username :nongmilk,Email :159314@gmail.com,Password :0962518548,
+Username :Sompong,Email :sompong@gmiail.com,Password :sompong,
+Username :Pun,Email :Pun@gmail.com,Password :punpun123,
