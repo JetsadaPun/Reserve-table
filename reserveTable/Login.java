@@ -12,7 +12,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class Login extends JFrame implements ActionListener {
+public class Login extends JFrame implements ActionListener, Wrong {
     Container cp;
     Container cp2;
     JLabel Login, Username, Password;
@@ -119,7 +119,7 @@ public class Login extends JFrame implements ActionListener {
             char[] Pass = t2.getPassword();
             String Password = new String(Pass);
 
-            if (!Name.isEmpty() && Password.length() > 5) {
+            if (!Name.isEmpty() && Password.length() >= 5) {
                 try {
                     File f = new File("Information.txt");
                     FileReader fr = new FileReader(f);

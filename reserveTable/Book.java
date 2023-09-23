@@ -178,13 +178,19 @@ public class Book extends JFrame implements MouseListener, ActionListener {
             String name = t1.getText();
             String phone = t2.getText();
             String partySize = t3.getText();
-            table table = new table(name, phone, partySize, (String) c1.getSelectedItem(),
-                    (String) c2.getSelectedItem());
-            table.setVisible(true);
+            if (name.isEmpty() || phone.isEmpty() || partySize.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Please fill out all fields.", "ข้อมูลไม่ครบ",
+                        JOptionPane.WARNING_MESSAGE);
+            } else if (phone.matches("\\d+") && phone.length() >= 10) {
+                table table = new table(name, phone, partySize, (String) c1.getSelectedItem(),
+                        (String) c2.getSelectedItem());
+                table.setVisible(true);
+                dispose();
+            }
         } else if (e.getActionCommand() == "Back") {
             Login Login = new Login();
             Login.setVisible(true);
+            dispose();
         }
-        dispose();
     }
 }

@@ -10,7 +10,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.awt.image.BufferedImage;
 
-public class Register extends JFrame implements ActionListener {
+public class Register extends JFrame implements ActionListener, Complete {
     Container cp;
     Container cp2;
     JLabel Register, Username, Email, Password, ConfirmPassword;
@@ -54,7 +54,7 @@ public class Register extends JFrame implements ActionListener {
         Email.setForeground(Color.white);
         t2 = new JTextField(20);
 
-        Password = new JLabel("Password");
+        Password = new JLabel("Password five or more characters");
         Password.setFont(new Font("Sitka Text", Font.PLAIN, 13));
         Password.setForeground(Color.white);
         t3 = new JPasswordField(20);
@@ -76,7 +76,7 @@ public class Register extends JFrame implements ActionListener {
         t1.setBounds(50, 105, 200, 25);
         Email.setBounds(50, 135, 70, 25);
         t2.setBounds(50, 160, 200, 25);
-        Password.setBounds(50, 190, 65, 25);
+        Password.setBounds(50, 190, 220, 25);
         t3.setBounds(50, 215, 200, 25);
         ConfirmPassword.setBounds(50, 245, 150, 25);
         t4.setBounds(50, 270, 200, 25);
@@ -126,6 +126,7 @@ public class Register extends JFrame implements ActionListener {
         Di.setVisible(true);
         Di.setLocationRelativeTo(null);
         Di.pack();
+        dispose();
     }
 
     public void Initial() {
@@ -150,7 +151,7 @@ public class Register extends JFrame implements ActionListener {
         if (e.getActionCommand() == "Submit") {
             if (t1 != null && t2 != null &&
                     t3 != null && t4 != null
-                    && password.equals(confirmPassword) && !password.isEmpty()) {
+                    && password.equals(confirmPassword) && !password.isEmpty() && password.length() >= 5) {
                 Complete();
                 Login Login = new Login();
                 Login.setVisible(true);

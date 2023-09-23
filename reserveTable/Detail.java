@@ -133,17 +133,25 @@ public class Detail extends JFrame implements ActionListener {
             book.setVisible(true);
             dispose();
         } else if (e.getActionCommand() == "save") {
-
             try {
                 File f = new File("Reserved.txt");
                 FileWriter fw = new FileWriter(f, true);
                 BufferedWriter bw = new BufferedWriter(fw);
-                bw.write("Name of table : " + Name + " ," +
-                        "Phone of table : " + Phone + " ," +
-                        "Size of table : " + Size + " ," +
-                        "Date of table ; " + Date + " ," +
-                        "Time of table ; " + Time + " ," +
-                        "Number of table : " + Number + "\n");
+                bw.write("Name of table : " + Name + " ," + "\n" +
+                        "     Phone of table : " + Phone + " ," + "\n" +
+                        "     Size of table : " + Size + " ," + "\n" +
+                        "     Date of table : " + Date + " ," + "\n" +
+                        "     Time of table : " + Time + " ," + "\n" +
+                        "     Number of table : " + Number + "\n");
+                bw.close();
+            } catch (Exception ex) {
+                System.out.println(ex);
+            }
+            try {
+                File f = new File("DayTable.txt");
+                FileWriter fw = new FileWriter(f, true);
+                BufferedWriter bw = new BufferedWriter(fw);
+                bw.write(Date + " ," + Time + " ," + Number + "\n");
                 bw.close();
             } catch (Exception ex) {
                 System.out.println(ex);
