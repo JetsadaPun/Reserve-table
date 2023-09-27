@@ -11,8 +11,9 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class Detail extends JFrame implements ActionListener {
+public class Detail extends JFrame implements ActionListener, Finally, setComponent, Initial, Complete {
     Container cp;
+    Container cp2;
     JLabel detail;
     JButton b1, b2;
     JPanel p;
@@ -42,6 +43,19 @@ public class Detail extends JFrame implements ActionListener {
         setComponent();
 
         Finally();
+    }
+
+    public void Complete() {
+        JDialog Di = new JDialog();
+        cp2 = Di.getContentPane();
+        cp2.setLayout(new FlowLayout());
+        JLabel c = new JLabel("บันทึกข้อมูลสำเร็จ.");
+        c.setFont(new Font("Times New Roman", Font.BOLD, 15));
+        cp2.add(c);
+        Di.setVisible(true);
+        Di.setLocationRelativeTo(null);
+        Di.pack();
+        dispose();
     }
 
     public void setComponent() {
@@ -157,6 +171,9 @@ public class Detail extends JFrame implements ActionListener {
                 System.out.println(ex);
             }
             dispose();
+            Complete();
+            ;
         }
     }
+
 }

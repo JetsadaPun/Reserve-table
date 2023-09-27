@@ -1,5 +1,5 @@
 package reserveTable;
 
-public interface Interfacecreatetable {
+public interface createtable {
     public void Createtable();
 }

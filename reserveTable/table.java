@@ -5,14 +5,13 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.awt.*;
 
-public class table extends JFrame implements ActionListener, MouseListener, InterfaceButton, Interfacecreatetable {
+public class table extends JFrame
+        implements ActionListener, MouseListener, Button, createtable, Finally, setComponent, Initial {
     Container cp;
     JLabel Date;
     JPanel buttonPanel;

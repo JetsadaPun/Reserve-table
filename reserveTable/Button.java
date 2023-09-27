@@ -1,5 +1,5 @@
 package reserveTable;
 
-public interface InterfaceButton {
+public interface Button {
     public void Button();
 }

@@ -10,7 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class Book extends JFrame implements MouseListener, ActionListener {
+public class Book extends JFrame implements MouseListener, ActionListener, Finally, setComponent, Initial {
     Container cp;
     JLabel Book, Name, Phone, Size, Date, Time;
     JTextField t1, t2, t3;

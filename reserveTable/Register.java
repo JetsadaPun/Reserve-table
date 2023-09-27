@@ -10,7 +10,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.awt.image.BufferedImage;
 
-public class Register extends JFrame implements ActionListener, Complete {
+public class Register extends JFrame implements ActionListener, Complete, Finally, setComponent, Initial, Wrong {
     Container cp;
     Container cp2;
     JLabel Register, Username, Email, Password, ConfirmPassword;
@@ -103,6 +103,19 @@ public class Register extends JFrame implements ActionListener, Complete {
 
     }
 
+    public void wrong() {
+        JDialog Di = new JDialog();
+        cp2 = Di.getContentPane();
+        cp2.setLayout(new FlowLayout());
+        JLabel c = new JLabel("Something Wrong please check again.");
+        c.setFont(new Font("Sitka Text", Font.BOLD, 15));
+        cp2.add(c);
+        Di.setVisible(true);
+        Di.setResizable(false);
+        Di.setLocationRelativeTo(null);
+        Di.pack();
+    }
+
     public void Complete() {
         try {
             File f = new File("Information.txt");
@@ -120,13 +133,12 @@ public class Register extends JFrame implements ActionListener, Complete {
         JDialog Di = new JDialog();
         cp2 = Di.getContentPane();
         cp2.setLayout(new FlowLayout());
-        JLabel c = new JLabel("Complete.");
+        JLabel c = new JLabel("คุณได้ทำการสมัครสมาชิกเรียบร้อยแล้ว.");
         c.setFont(new Font("Times New Roman", Font.BOLD, 15));
         cp2.add(c);
         Di.setVisible(true);
         Di.setLocationRelativeTo(null);
         Di.pack();
-        dispose();
     }
 
     public void Initial() {
@@ -152,14 +164,16 @@ public class Register extends JFrame implements ActionListener, Complete {
             if (t1 != null && t2 != null &&
                     t3 != null && t4 != null
                     && password.equals(confirmPassword) && !password.isEmpty() && password.length() >= 5) {
-                Complete();
                 Login Login = new Login();
                 Login.setVisible(true);
-            }
+                Complete();
+                dispose();
+            } else
+                wrong();
         } else if (e.getActionCommand() == "Back") {
             Login Login = new Login();
             Login.setVisible(true);
-        } // ส่งข้อมูลกลับไปดาต้าเบส กีต้ายะฮู้ว
-        dispose();
+            dispose();
+        }
     }
 }

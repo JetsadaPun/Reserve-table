@@ -6,13 +6,11 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 
-public class Login extends JFrame implements ActionListener, Wrong {
+public class Login extends JFrame implements ActionListener, Wrong, Finally, setComponent, Initial {
     Container cp;
     Container cp2;
     JLabel Login, Username, Password;
@@ -88,14 +86,28 @@ public class Login extends JFrame implements ActionListener, Wrong {
 
     }
 
+    public void Complete() {
+        JDialog Di = new JDialog();
+        cp2 = Di.getContentPane();
+        cp2.setLayout(new FlowLayout());
+        JLabel c = new JLabel("Complete.");
+        c.setFont(new Font("Times New Roman", Font.BOLD, 15));
+        cp2.add(c);
+        Di.setVisible(true);
+        Di.setLocationRelativeTo(null);
+        Di.pack();
+        dispose();
+    }
+
     public void wrong() {
         JDialog Di = new JDialog();
         cp2 = Di.getContentPane();
         cp2.setLayout(new FlowLayout());
         JLabel c = new JLabel("Something Wrong please check again.");
-        c.setFont(new Font("Times New Roman", Font.BOLD, 15));
+        c.setFont(new Font("Sitka Text", Font.BOLD, 15));
         cp2.add(c);
         Di.setVisible(true);
+        Di.setResizable(false);
         Di.setLocationRelativeTo(null);
         Di.pack();
     }
@@ -167,7 +179,8 @@ public class Login extends JFrame implements ActionListener, Wrong {
                 } catch (Exception ex) {
                     System.out.println(ex);
                 }
-            }
+            } else
+                wrong();
         } else if (e.getActionCommand() == "Register") {
             Register Register = new Register();
             Register.setVisible(true);
