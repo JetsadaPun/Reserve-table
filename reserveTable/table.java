@@ -12,6 +12,7 @@ import java.awt.*;
 
 public class table extends JFrame
         implements ActionListener, MouseListener, Button, createtable, Finally, setComponent, Initial {
+    Container cp3;
     Container cp;
     JLabel Date;
     JPanel buttonPanel;
